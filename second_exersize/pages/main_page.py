@@ -1,7 +1,7 @@
-class BasePage():
-    def __init__(self,browser,url):
-        self.browser = browser
-        self.url = url
-    
-    def open(self):
-        self.browser.get(self.url)
+from .base_page import BasePage
+
+
+class MainPage(BasePage):
+    def go_to_login_page(self):
+        login_link = self.browser.find_element_by_css_selector("#login-link")
+        login_link.click()

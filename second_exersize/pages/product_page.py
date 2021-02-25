@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-import time
 
 class ProductPage(BasePage):
     def should_be_product_page(self):
@@ -39,7 +38,8 @@ class ProductPage(BasePage):
         price = self.browser.find_element(*ProductPageLocators.PRICE).text
         cart_price = self.browser.find_element(*ProductPageLocators.CART_PRICE).text
         alert_message = self.browser.find_element(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART).text
+        book_title = self.browser.find_element(*ProductPageLocators.BOOK_TITLE).text
         assert price == cart_price, "price and cart price is not match"
-        assert alert_message == "The shellcoder's handbook було додано до Вашого кошику."
-        time.sleep(10000)
+        assert alert_message == book_title, "added book is not math"
+        
         

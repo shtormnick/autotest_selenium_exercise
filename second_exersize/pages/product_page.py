@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
+
 class ProductPage(BasePage):
     def should_be_product_page(self):
         self.should_be_login_url()
@@ -9,7 +10,6 @@ class ProductPage(BasePage):
         self.should_be_add_to_cart()
         self.should_be_write_review()
         self.add_to_cart()
-        
 
     def should_be_login_url(self):
         assert self.is_element_present(
@@ -36,10 +36,19 @@ class ProductPage(BasePage):
         button.click()
         self.solve_quiz_and_get_code()
         price = self.browser.find_element(*ProductPageLocators.PRICE).text
-        cart_price = self.browser.find_element(*ProductPageLocators.CART_PRICE).text
-        alert_message = self.browser.find_element(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART).text
-        book_title = self.browser.find_element(*ProductPageLocators.BOOK_TITLE).text
+        cart_price = self.browser.find_element(
+            *ProductPageLocators.CART_PRICE).text
+        alert_message = self.browser.find_element(
+            *ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART).text
+        book_title = self.browser.find_element(
+            *ProductPageLocators.BOOK_TITLE).text
         assert price == cart_price, "price and cart price is not match"
         assert alert_message == book_title, "added book is not math"
-        
-        
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
+            "Success message is present, but shouldn't"
+    
+    def should_dissapeared(self):
+        assert self.should_dissapeared(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
+            "Success message is not dissapeared, but should"

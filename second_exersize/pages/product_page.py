@@ -10,6 +10,8 @@ class ProductPage(BasePage):
         self.should_be_add_to_cart()
         self.should_be_write_review()
         self.add_to_cart()
+        self.should_not_be_success_message()
+        self.should_dissapeared_success_message()
 
     def should_be_login_url(self):
         assert self.is_element_present(
@@ -49,6 +51,6 @@ class ProductPage(BasePage):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
             "Success message is present, but shouldn't"
     
-    def should_dissapeared(self):
-        assert self.should_dissapeared(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
+    def should_dissapeared_success_message(self):
+        assert self.is_dissapeared(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
             "Success message is not dissapeared, but should"

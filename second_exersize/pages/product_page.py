@@ -54,3 +54,4 @@ class ProductPage(BasePage):
     def should_dissapeared_success_message(self):
         assert self.is_dissapeared(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
             "Success message is not dissapeared, but should"
+    

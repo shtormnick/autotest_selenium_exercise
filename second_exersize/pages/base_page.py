@@ -1,3 +1,4 @@
+from second_exersize.pages.locators import BasePageLocators, LoginPageLocators
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support.ui import WebDriverWait
@@ -12,6 +13,15 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+        assert "login" in self.browser.current_url, "Link is invalid"
+
+    def should_be_login_link(self):
+        assert self.is_element_present(
+            *LoginPageLocators.LOGIN_LINK), "Login link is not presented"
 
     def __int__(self, browser, url, timeout=10):
         self.browser = browser

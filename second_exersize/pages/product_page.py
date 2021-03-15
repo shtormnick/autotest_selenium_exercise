@@ -4,7 +4,6 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
     def should_be_product_page(self):
-        self.should_be_login_url()
         self.should_be_price()
         self.should_be_instock()
         self.should_be_add_to_cart()
@@ -12,10 +11,6 @@ class ProductPage(BasePage):
         self.add_to_cart()
         self.should_not_be_success_message()
         self.should_dissapeared_success_message()
-
-    def should_be_login_url(self):
-        assert self.is_element_present(
-            *ProductPageLocators.LOGIN_LINK), "Login link is incorrect or abcent"
 
     def should_be_price(self):
         assert self.is_element_present(

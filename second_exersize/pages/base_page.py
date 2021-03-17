@@ -19,6 +19,11 @@ class BasePage():
         link.click()
         assert "login" in self.browser.current_url, "Link is invalid"
 
+    def go_to_cart_page(self):
+        button = self.browser.find_element(*BasePageLocators.CART_BUTTON)
+        button.click()
+        assert "basket" in self.browser.current_url, "Wrong page (not a Cart page)"
+
     def should_be_login_link(self):
         assert self.is_element_present(
             *LoginPageLocators.LOGIN_LINK), "Login link is not presented"

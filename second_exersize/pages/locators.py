@@ -6,6 +6,8 @@ class BasePageLocators():
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     CART_BUTTON = (By.CSS_SELECTOR, ".btn-group .btn.btn-default")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
+class CartPageLocators():
     TEXT_OF_EMPTY_CART = (By.CSS_SELECTOR, "div#conttent_inner.p")
 
 

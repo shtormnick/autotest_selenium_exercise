@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import CartPageLocators, ProductPageLocators
 
 
 class ProductPage(BasePage):
@@ -45,8 +45,11 @@ class ProductPage(BasePage):
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
             "Success message is present, but shouldn't"
-    
+
     def should_dissapeared_success_message(self):
         assert self.is_dissapeared(*ProductPageLocators.SUCCESSFULL_MESSAGE_ADD_TO_CART), \
             "Success message is not dissapeared, but should"
-    
+
+    def cart_should_be_empty(self):
+        self.is_element_present(
+            *CartPageLocators.TEXT_OF_EMPTY_CART), "Text of empty cart is absent or cart isn't emty"

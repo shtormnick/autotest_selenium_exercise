@@ -1,5 +1,6 @@
 from second_exersize.pages.locators import CartPageLocators
 from .base_page import BasePage
+import pytest
 
 
 class BasketPage(BasePage):

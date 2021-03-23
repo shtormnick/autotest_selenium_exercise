@@ -15,6 +15,10 @@ class LoginPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     SIGNUP_FORM = (By.CSS_SELECTOR, "#register_form")
+    REGISTRATION_EMAIL = (By.ID, "id_registration-email")
+    REGISTRATION_PASSWORD1 = (By.ID, "id_registration-password1")
+    REGISTRATION_PASSWORD2 = (By.ID, "id_registration-password2")
+    SUBMIT_REGISTRATION = (By.NAME, "registration_submit")
 
 
 class ProductPageLocators():
